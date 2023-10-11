@@ -39,12 +39,16 @@ function replaceChar(initialString, replaceCharacter, position) {
     return initialPart + replaceCharacter + lastPart
 }
 
+function resetField() {
+    document.getElementById("givenLetter").value = "";
+}
+
 function checkLeter() {
     let letter = document.getElementById("givenLetter").value.toLowerCase()
     if (isLetter(letter)) {
         let wl = winnerWord.length;
         let letterExists = false;
-        document.getElementById("givenLetter").value = "";
+        resetField();
         for (let counter = 0; counter < wl; ++counter) {
             if (winnerWord[counter] === letter) {
                 displayedWord = replaceChar(displayedWord, letter, counter * 2);
@@ -67,7 +71,7 @@ function checkLeter() {
         }
     } else {
         alert("Please give a letter!");
-        document.getElementById("givenLetter").value = "";
+        resetField();
     }
 }
 
